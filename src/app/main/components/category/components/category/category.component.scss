@@ -1,0 +1,304 @@
+/* Adding custom blue theme */
+
+
+
+/* Styling paginator */
+.blue-theme .mat-paginator {
+  background-color: #2196F3;
+
+  /* blue background color for paginator */
+}
+
+/* Styling paginator buttons */
+.blue-theme .mat-paginator .mat-paginator-navigation {
+  color: #fff;
+  /* white text color for paginator buttons */
+}
+
+/* Styling paginator input */
+.blue-theme .mat-paginator .mat-paginator-page-size {
+  color: #fff;
+  /* white text color for paginator input */
+  border-color: #fff;
+  /* white border color for paginator input */
+}
+
+
+.employee-wrapper {
+  .dashbord-heading {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--light-text-color);
+  }
+
+  .top-btn {
+    font-size: 12px;
+  }
+.heading-color{
+  color: rgb(0, 62, 112);
+}
+  ::ng-deep {
+    table {
+      thead {
+        tr {
+          th {
+            color: var(--light-text-color);
+
+          }
+
+        }
+      }
+
+      tbody {
+        tr {
+          td {}
+        }
+      }
+    }
+  }
+
+  .employee-profile {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: #8b8b8b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .emp-text {
+    font-size: 14px;
+    color: #2196F3;
+    margin: 0;
+  }
+}
+
+
+.profile-title {
+  align-items: center;
+  gap: 10px;
+}
+
+.main-table-box {
+  padding-top: 15px;
+}
+
+.heading-t {
+  margin-left: 31px;
+}
+
+.edit-btn {
+  background: rgb(5, 218, 5);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #fff;
+
+  .edit-icon {
+    height: 17px !important;
+    width: 26px !important;
+  }
+}
+
+.delete-btn {
+  background: red;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #fff;
+
+  .delete-icon {
+    height: 17px !important;
+    width: 26px !important;
+  }
+}
+.assignColor-Pagination,
+.calling-list-pagenation,
+.blue-theme {
+  color:rgb(0, 62, 112);
+  font-size: 12px;
+  font-weight: 500;
+}
+.event-text {
+  font-size: 18px;
+  font-weight: 600;
+  // color: var(--light-text-color);
+  color:rgb(0, 62, 112)
+}
+
+::ng-deep {
+  .input-main-wrapper {
+    .mat-mdc-text-field-wrapper {
+      border-radius: 6px !important;
+      height: 40px;
+      width: 212px;
+      border: 1px solid #d6d6d6;
+      // border-radius: 5px;
+      background: #d6d6d6;
+      width: 217px !important;
+    }
+
+
+    .mat-mdc-form-field-flex {
+      height: 35px;
+    }
+
+    .mat-mdc-form-field-infix {
+      padding-top: 8px !important;
+      font-size: 13px !important;
+    }
+
+    .mat-step-text-label {
+      font-size: 13px;
+    }
+
+    .mdc-line-ripple {
+      display: none;
+    }
+  }
+
+
+
+}
+.employee-wrapper.loading {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-top: 4px solid rgb(0, 62, 112);
+  border-right: 4px solid transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.search-box {
+  position: relative;
+
+  .search-input {
+    height: 38px;
+    border-radius: 6px;
+    border: 1px solid #d6d6d6;
+    background: whitesmoke;
+    width: 200px;
+    padding-left: 33px;
+    font-size: 14px;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 9px;
+    top: 9px;
+
+  }
+}
+.loading-rows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; 
+  width: 100%;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-top: 4px solid rgb(0, 62, 112);
+  border-right: 4px solid transparent;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+     transform: rotate(360deg);
+  }
+}
+.employee-wrapper {
+  .dashbord-heading {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--light-text-color);
+  }
+
+  .top-btn {
+    font-size: 12px;
+  }
+
+  .heading-color {
+    color: rgb(0, 62, 112);
+  }
+
+  ::ng-deep {
+    table {
+      thead {
+        tr {
+          th {
+            color: var(--light-text-color);
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {}
+        }
+      }
+    }
+  }
+}
+  .employee-profile {
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: #8b8b8b;
+    color: #fff;
+    display: flex;
+  }
+.top-box {
+  padding-bottom: 0 !important;
+}
+
+.add-btn {
+  background: var(--blue);
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  height: 36px;
+  background-color: rgb(0, 62, 112);
+}
+
+::ng-deep{
+  .mat-calendar-content{
+    mat-month-view{
+      .mat-calendar-table{
+        .mat-calendar-table-header{
+          tr{
+            background: #ffffff  !important;
+            height: 2px;
+          }
+        }
+      }
+    }
+  }
+}

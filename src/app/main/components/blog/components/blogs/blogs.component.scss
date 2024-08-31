@@ -1,0 +1,59 @@
+.event-text{
+    color: rgb(0, 62, 112);
+    font-weight: 600;
+}
+
+.add-btn{
+    background-color: rgb(0, 62, 122);
+    color:white
+}
+.heading-color{
+    color: rgb(0, 62, 112);
+  }
+  .loading-rows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; 
+    width: 100%;
+  }
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-top: 4px solid rgb(0, 62, 112);
+    border-right: 4px solid transparent;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    to {
+       transform: rotate(360deg);
+    }
+  }
+  .assignColor-Pagination,
+  .calling-list-pagenation,
+  .blue-theme {
+    color:rgb(0, 62, 112);
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .search-box {
+    position: relative;
+  
+    .search-input {
+      height: 38px;
+      border-radius: 6px;
+      border: 1px solid #d6d6d6;
+      background: whitesmoke;   
+      width: 200px;
+      padding-left: 33px;
+      font-size: 14px;
+    }
+  
+    .search-icon {
+      position: absolute;
+      left: 9px;
+      top: 9px;
+  
+    }
+  }

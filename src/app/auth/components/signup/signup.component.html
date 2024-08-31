@@ -1,0 +1,110 @@
+<!-- signup.component.html -->
+
+<!-- <div class="signup-container">
+  <h2>Sign Up</h2>
+  <form>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" id="email" [(ngModel)]="email" name="email" placeholder="Enter your email" required>
+      <span style="color: red;" *ngIf="showmsg && !email">*This field is required</span>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" placeholder="Enter your password" required>
+      <span style="color: red;" *ngIf="showmsg && !password">*This field is required</span>
+    </div>
+    <div class="form-group">
+      <label for="mobile">Mobile Number:</label>
+      <input type="tel" id="mobile" name="mobile" [(ngModel)]="mobile" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
+      <span style="color: red;" *ngIf="showmsg && !mobile">*This field is required</span>
+
+    </div>
+    <button type="submit" (click)="Submit()">Sign Up</button>
+  </form>
+  <p>Already have an account? <a [routerLink]="'/login'">Sign in</a></p>
+</div> -->
+
+
+
+<div class="row">
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-8">
+    <div class="back-image"></div>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 pl-md-0">
+    <div class="d-flex align-items-center login-form">
+      <form class="sign-in-sign-up-form w-100">
+
+        <div class="text-center mb-4">
+          <img src="http://erp.stageprojects.xyz/storage/logo/64dc9efd9776e.png" alt="" class="img-fluid logo">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-12">
+            <h6 class="text-center mb-0">Hi!</h6> <label class="text-center d-block">Login to your dashboard</label>
+          </div>
+        </div>
+        <div class="form-group input-section">
+          <label for="name">Name</label>
+          <input class="input-field" type="text" id="name" [(ngModel)]="username" name="name"  placeholder="Enter your Name">
+          <span style="color: red;" *ngIf="showmsg && !username">*This field is required</span>
+
+        </div>
+
+        <div class="form-group input-section">
+          <label for="email">Email</label>
+          <input class="input-field" type="text" id="email" [(ngModel)]="email" name="email" (keyup)="checkEmail($event)" placeholder="Enter your email" required>
+          <span style="color: red;" *ngIf="correctemailmsg && email ">Please Enter a valid Email Address!</span>
+          <span style="color: red;" *ngIf="showmsg && !email">*This field is required</span>
+        </div>
+
+
+
+
+        <div class="form-group input-section">
+          <label for="password">Password</label>
+          <input class="input-field" type="password" id="password" [(ngModel)]="password" name="password" placeholder="Enter your password" required>
+          <span style="color: red;" *ngIf="showmsg && !password">*This field is required</span>
+        </div>
+
+        <!-- <div class="form-group input-section">
+          <label for="password">Password</label>
+          <input class="input-field" type="password" id="password" [(ngModel)]="password" name="password" placeholder="Enter your password">
+        </div> -->
+
+
+        <div class="form-group input-section">
+          <label for="mobile">Mobile Number</label>
+          <input class="input-field" type="tel" id="mobile" name="mobile" [(ngModel)]="mobile" (keyup)="validateNumbercheck($event)" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
+          <span style="color: red;" *ngIf="showmsg && !mobile">*Mobile Number is required</span>
+          <span style="color: red;"  *ngIf="validateNumber && mobile ">Please Enter a valid Mobile Number!</span>
+
+
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-12">
+            <button (click)="Submit()" type="submit"
+              class="btn text-center d-inline-flex btn-block text-center btn-primary login-btn">
+              <span class="w-100">Sign Up</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-row forget-section">
+          <p class="already-cls">Already have an account? <a [routerLink]="'/login'">Sign in</a></p>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            <p class="text-center mt-5 footer-copy">
+              Copyright @ 2024 by Gurpreet Singh
+            </p>
+          </div>
+        </div>
+        <!-- <button type="submit" (click)="onSubmit()">Log in</button> -->
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+// ::ng-deep{
+//     .fc-event.fc-event-start.fc-event-end{
+//         color: red !important;
+//         .fc-event-time{
+//             display: none;
+//         }
+//         .fc-daygrid-event-dot{
+//             border-color: red;
+//         }
+//     }
+//     .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+//         min-height: 0 !important;
+//         position: relative;
+//     }
+//     .fc-daygrid-day-events{
+//         display: none;
+//     }
+
+//     .fc .fc-col-header-cell-cushion {
+//         color: #ffffff;
+//         padding: 10px 0;
+//     }
+//     table{
+//         thead{
+//             tr{
+//                 background-color: #000000;
+//                th{
+//                 color: #ffffff;
+//                }
+//             }
+//         }
+//     }
+// }
+
+
+::ng-deep {
+    table {
+        thead {
+            tr {
+                // background-color: #2b303b !important;
+                height: 40px;
+            }
+
+            th {
+
+
+                .fc-col-header-cell-cushion {
+                    color: #fff;
+                    text-decoration: none;
+                    margin-top: 7px;
+
+                }
+            }
+        }
+
+        .fc-daygrid-day-number{
+            color: #2b303b;
+            text-decoration: none;
+        }
+
+        .fc-daygrid-event-dot{
+            display: none;
+            // border: 5px solid #2b303b !important;
+            // border-radius: 10px;
+        }
+        .fc-event-time{
+            display: none;
+        }
+        .fc-event-title{
+            text-align: end;
+            color: #2b303b;
+            font-weight: 400 !important;
+            font-size: 14px;
+            margin-left: auto;
+            overflow: auto !important;
+            text-wrap: wrap !important;
+        
+        }
+
+        .fc-daygrid-event-harness{
+            background: #f6f1d6;
+            margin-bottom: 5px;
+        }
+    }
+}

@@ -1,0 +1,366 @@
+<div id="fixedpage" class="fixed-page" *ngIf="paramsid">
+  <div class="edit-employee-wrapper p-4">
+    <div class="">
+      <div class="emp-heading">
+
+        <div id="fixedpage" class="fixed-page">
+          <div class="edit-employee-wrapper p-4">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="emp-heading">
+                <p class="">
+                  Employe Details <span> | </span>
+                  <span style="cursor: pointer;" (click)="back()"> Back to all employee </span>
+                </p>
+              </div>
+              <div>
+                <!-- <button class="border-0 py-2 px-5 mb-2 rounded text-white bg-primary" (click)="goToSalarySlipPage()">
+                  Go to Download Salary Slip
+                </button> -->
+              </div>
+            </div>
+            <div class="p-4 rounded card-body bg-white shadow border-none mt-4" style="    justify-content: space-between;
+             ">
+              <div class="d-flex p-1" style="    justify-content: space-around;">
+                <div class="d-flex align-items-center" style="gap: 50px;">
+                  <!-- <div class="img-bg-box" *ngIf="getemployeedata?.images">
+                     <img src="{{!this.getemployeedata?.images[0].url ? '../../../../../../assets/house-amenities.jpg' : this.getemployeedata.images[0].url }}" />
+                   </div>
+                   <div class="img-bg-box" *ngIf="!getemployeedata?.images">
+                     <img src="'../../../../../../assets/house-amenities.jpg'" />
+                   </div> -->
+                  <div class="circular-container">
+                    <!-- Circular image -->
+                    <div class="circular-image">
+                      <img src="{{  imageUrl ||getemployeedata?.user?.images[0]?.url}}" alt="Profile Picture">
+                    </div>
+                    <!-- Update button -->
+                    <label class="update-button">
+                      <input type="file" accept="image/*" (change)="onFileInput($event)">
+                      Update
+                    </label>
+                  </div>
+                  <div class="employe-details">
+                    <p class="emp-name">
+                      {{getemployeedata?.user?.username || '--'}}
+                    </p>
+                    <p class="permanent">Permanent</p>
+                    <p class="emp-detail-text" style="    margin-top: 7px;">{{getemployeedata?.user?.designation}}</p>
+                    <p class="emp-detail-text">{{officeId}}</p>
+                    <p class="emp-detail-text">{{role == 'tl' ? 'Team Lead' : role}}</p>
+                  </div>
+                  <div></div>
+
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="d-flex all-details-wrapper gap-5">
+                    <div class="department-details">
+                      <div class="d-flex gap-2 mb-4" style="align-items: center;">
+                        <div class="department-icon">
+                          <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                              <path
+                                d="M9 11V6C9 4.34315 10.3431 3 12 3C13.6569 3 15 4.34315 15 6V10.9673M10.4 21H13.6C15.8402 21 16.9603 21 17.816 20.564C18.5686 20.1805 19.1805 19.5686 19.564 18.816C20 17.9603 20 16.8402 20 14.6V12.2C20 11.0799 20 10.5198 19.782 10.092C19.5903 9.71569 19.2843 9.40973 18.908 9.21799C18.4802 9 17.9201 9 16.8 9H7.2C6.0799 9 5.51984 9 5.09202 9.21799C4.71569 9.40973 4.40973 9.71569 4.21799 10.092C4 10.5198 4 11.0799 4 12.2V14.6C4 16.8402 4 17.9603 4.43597 18.816C4.81947 19.5686 5.43139 20.1805 6.18404 20.564C7.03968 21 8.15979 21 10.4 21Z"
+                                stroke="#0d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                          </svg>
+                        </div>
+                        <div>
+                          <p class="department-name">Derpartment</p>
+                          <p class="postion-name">{{getemployeedata?.user?.department || 'Not Added'}}</p>
+                        </div>
+                      </div>
+                      <div class="d-flex gap-2 mb-4" style="align-items: center;">
+                        <div class="department-icon">
+                          <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                              <path
+                                d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                                stroke="#0d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                          </svg>
+                        </div>
+                        <div>
+                          <p class="department-name">Work shift</p>
+                          <p class="postion-name">Regular work shift</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="department-details">
+                      <div class="d-flex gap-2 mb-4" style="align-items: center;">
+                        <div class="department-icon">
+                          <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                              <path
+                                d="M12 20.75C11.8019 20.7474 11.6126 20.6676 11.4725 20.5275C11.3324 20.3874 11.2526 20.1981 11.25 20V4C11.25 3.80109 11.329 3.61032 11.4697 3.46967C11.6103 3.32902 11.8011 3.25 12 3.25C12.1989 3.25 12.3897 3.32902 12.5303 3.46967C12.671 3.61032 12.75 3.80109 12.75 4V20C12.7474 20.1981 12.6676 20.3874 12.5275 20.5275C12.3874 20.6676 12.1981 20.7474 12 20.75Z"
+                                fill="#0d6efd"></path>
+                              <path
+                                d="M13.5 18.75H7C6.80109 18.75 6.61032 18.671 6.46967 18.5303C6.32902 18.3897 6.25 18.1989 6.25 18C6.25 17.8011 6.32902 17.6103 6.46967 17.4697C6.61032 17.329 6.80109 17.25 7 17.25H13.5C14.1615 17.3089 14.8199 17.1064 15.3339 16.6859C15.8479 16.2653 16.1768 15.6601 16.25 15C16.1768 14.3399 15.8479 13.7347 15.3339 13.3141C14.8199 12.8935 14.1615 12.691 13.5 12.75H10.5C9.97449 12.7839 9.44746 12.7136 8.94915 12.5433C8.45085 12.373 7.99107 12.106 7.5962 11.7576C7.20134 11.4092 6.87915 10.9863 6.64814 10.513C6.41712 10.0398 6.28182 9.52562 6.25 8.99998C6.28182 8.47434 6.41712 7.96016 6.64814 7.48694C6.87915 7.01371 7.20134 6.59076 7.5962 6.24235C7.99107 5.89394 8.45085 5.62692 8.94915 5.45663C9.44746 5.28633 9.97449 5.21611 10.5 5.24998H16C16.1989 5.24998 16.3897 5.329 16.5303 5.46965C16.671 5.61031 16.75 5.80107 16.75 5.99998C16.75 6.1989 16.671 6.38966 16.5303 6.53031C16.3897 6.67097 16.1989 6.74998 16 6.74998H10.5C9.83846 6.69103 9.18013 6.89353 8.6661 7.3141C8.15206 7.73468 7.82321 8.33987 7.75 8.99998C7.82321 9.6601 8.15206 10.2653 8.6661 10.6859C9.18013 11.1064 9.83846 11.3089 10.5 11.25H13.5C14.0255 11.2161 14.5525 11.2863 15.0508 11.4566C15.5492 11.6269 16.0089 11.8939 16.4038 12.2423C16.7987 12.5908 17.1208 13.0137 17.3519 13.4869C17.5829 13.9602 17.7182 14.4743 17.75 15C17.7182 15.5256 17.5829 16.0398 17.3519 16.513C17.1208 16.9863 16.7987 17.4092 16.4038 17.7576C16.0089 18.106 15.5492 18.373 15.0508 18.5433C14.5525 18.7136 14.0255 18.7839 13.5 18.75Z"
+                                fill="#0d6efd"></path>
+                            </g>
+                          </svg>
+                        </div>
+                        <div>
+                          <p class="department-name">Salary</p>
+                          <p class="postion-name"> {{ grosssalary|| 'Not added yet'}}</p>
+                        </div>
+                      </div>
+                      <div class="d-flex gap-2 mb-4" style="align-items: center;">
+                        <div class="department-icon">
+                          <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                              <path
+                                d="M3 10H21M7 3V5M17 3V5M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                                stroke="#0d6efd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                          </svg>
+                        </div>
+                        <div>
+                          <p class="department-name">Joining Date</p>
+                          <p class="postion-name">{{moment(joiningDate).format('DD-MM-YYYY')|| 'Not added yet'}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex p-4 gap-3">
+            <div class="employe-inner-details card-body rounded shadow p-4 bg-white">
+              <div class="pb-5">
+                <div class="text-center mb-4">
+                  <i class="fa fa-user text-center text-primary" aria-hidden="true"></i>
+                </div>
+                <div (click)="checkName(items?.name)" class="d-flex justify-content-between mb-3 active"
+                  *ngFor="let items of employeeDetailSideBarArr">
+                  <p class="personal-details-text m-0 active">
+                    {{items?.name}}
+                  </p>
+                  <div>
+                    <i class="fa fa-angle-right personal-details-text active" aria-hidden="true"></i>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="shadow p-4 rounded card-body bg-white">
+              <div class="index-1" *ngIf="userMenuList == 'Personal Detail'">
+                <div class="detail-side-box">
+                  <p class="deatils-haeding">Personal Details</p>
+                </div>
+                <div class="details-form mt-3">
+                  <div class="d-flex align-items-start gap-5 mb-3">
+                    <label class="label-text"> Name </label>
+                    <input [(ngModel)]="username" readonly type="name" class="form-control input-value"
+                      id="Enter your name" placeholder="Enter your Name" />
+                  </div>
+
+
+
+
+                  <div class="d-flex align-items-start gap-5 mb-3">
+                    <label class="label-text"> Email </label>
+                    <input [(ngModel)]="email" readonly type="name" class="form-control input-value" id=""
+                      placeholder="Enter your Email" />
+                  </div>
+                  <div class="d-flex align-items-start gap-5 mb-3">
+                    <label class="label-text"> Employee Id </label>
+                    <input [(ngModel)]="officeId" readonly type="name" class="form-control input-value" id=""
+                      placeholder="Enter your Employee Id" />
+                  </div>
+                  <div class="d-flex align-items-start gap-5 mb-3">
+                    <label class="label-text"> Phone Number </label>
+                    <input type="name" readonly [(ngModel)]="number" class="form-control input-value" id=""
+                      placeholder="Enter your number" />
+                  </div>
+
+                  <div class="d-flex align-items-start gap-5 mb-3">
+                    <label class="label-text"> Gender </label>
+                    <div class="d-flex align-items-center gap-4">
+                      <div class="d-flex align-items-center">
+                        <input type="radio" id="Male" name="Male" value="Male" [(ngModel)]="gender" />
+                        <label class="radio-lable ps-2" for="Male">Male</label><br />
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <input type="radio" id="Female" name="Female" value="Female" [(ngModel)]="gender" />
+                        <label class="radio-lable ps-2" for="Female">Female</label><br />
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <input type="radio" id="Others" name="Others" value="Others" [(ngModel)]="gender" />
+                        <label class="radio-lable ps-2" for="Others">Others</label><br />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-start gap-5 mb-3">
+                    <label class="label-text"> About me </label>
+
+                    <textarea class="form-control input-value" id="" placeholder="Add about me here">
+                                 </textarea>
+                  </div>
+                  <!-- <div class="d-flex align-items-start gap-5 mb-3">
+                     <label class="label-text"> </label>
+                     <button type="" class="submit-btn" (click)="UpdateProfile()">Submit</button>
+                   </div> -->
+
+                  <div></div>
+                </div>
+              </div>
+              <div class="index-1" *ngIf="userMenuList == 'Change Password'">
+                <div class="detail-side-box">
+                  <p class="deatils-haeding">Chnage Password</p>
+                </div>
+                <div class="details-form mt-3">
+                  <div class="b-margin">
+                    <div class="d-flex align-items-center gap-5">
+                      <label class="label-text"> Current Password </label>
+                      <input [(ngModel)]="currentpassword" type="password" class="form-control input-value"
+                        id="currentpassword" required currentpassword placeholder="Enter Current Password" />
+                    </div>
+                    <mat-error class="form-error" *ngIf="!currentpassword && this.showerror"> Current password is
+                      required
+                    </mat-error>
+                  </div>
+                  <div class="b-margin">
+                    <div class="d-flex align-items-center gap-5">
+                      <label class="label-text"> New Password </label>
+                      <input [(ngModel)]="password" type="password" class="form-control input-value" id="password"
+                        required password placeholder="Enter New Passsword" />
+
+                    </div>
+                    <mat-error class="form-error" *ngIf="!password && this.showerror"> Current password is required
+                    </mat-error>
+                  </div>
+                  <div class="b-margin">
+                    <div class="d-flex align-items-center gap-5 ">
+                      <label class="label-text"> Confirm Password </label>
+                      <input [(ngModel)]="confirmpassword" type="password" class="form-control input-value"
+                        id="confirmpassword" required confirmpassword placeholder="Confirm your password" />
+
+
+                    </div>
+                    <mat-error class="form-error" *ngIf="!confirmpassword && this.showerror"> Confirm Your Password
+                    </mat-error>
+                    <mat-error class="form-error" *ngIf="password != confirmpassword && confirmpassword "> Current
+                      password and Confirm required should be same</mat-error>
+                  </div>
+
+
+
+
+
+
+                  <!-- <div class="d-flex align-items-start gap-5 mb-3">
+                     <label class="label-text"> Gender </label>
+
+                     <div class="d-flex align-items-center gap-4">
+                       <div class="d-flex align-items-center">
+                         <input type="radio" id="age1" name="age" value="30" />
+                         <label class="radio-lable ps-2" for="age1">Male</label><br />
+                       </div>
+                       <div class="d-flex align-items-center">
+                         <input type="radio" id="age1" name="age" value="30" />
+                         <label class="radio-lable ps-2" for="age1">Female</label><br />
+                       </div>
+                       <div class="d-flex align-items-center">
+                         <input type="radio" id="age1" name="age" value="30" />
+                         <label class="radio-lable ps-2" for="age1">Others</label><br />
+                       </div>
+                     </div>
+                   </div> -->
+
+                  <div class="d-flex align-items-start gap-5 mb-3">
+                    <label class="label-text"> </label>
+                    <button (click)="Sumbit()" class="submit-btn">Submit</button>
+                  </div>
+
+                  <div></div>
+                </div>
+              </div>
+
+              <div class="index-2" *ngIf="userMenuList == 'Work From Home'">
+                <div class="d-flex align-items-center heading-box gap-2">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  <p>WFH</p>
+                </div>
+                <div>
+                  <div class="mat-table-container">
+                    <table mat-table [dataSource]="dataSource" class="mat-table">
+
+                      <!-- Column definitions -->
+                      <ng-container matColumnDef="title">
+                        <th mat-header-cell *matHeaderCellDef class="blue-theme">Title</th>
+                        <td mat-cell *matCellDef="let element">{{element?.reason}}</td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="startdate">
+                        <th mat-header-cell *matHeaderCellDef class="blue-theme">Start Date</th>
+                        <td mat-cell *matCellDef="let element">{{moment(element?.startDate).format('DD-MM-YYYY')}}
+                        </td>
+                      </ng-container>
+                      <ng-container matColumnDef="enddate">
+                        <th mat-header-cell *matHeaderCellDef class="blue-theme"> End Date</th>
+                        <td mat-cell *matCellDef="let element">{{moment(element?.endDate).format('DD-MM-YYYY')}}
+                        </td>
+                      </ng-container>
+
+
+                      <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef class="blue-theme">Status</th>
+                        <td mat-cell *matCellDef="let element">
+                          <span [ngClass]="{'yellow' :element?.status === 'pending', 'red': element?.status === 'rejected', 'green':element?.status === 'approved'}">{{element?.status}}</span></td>
+                        </ng-container>
+
+                      <!-- <ng-container matColumnDef="Action">
+                        <th mat-header-cell *matHeaderCellDef class="blue-theme"> Action </th>
+                        <td mat-cell *matCellDef="let row">
+                          <i _ngcontent-ng-c1620102347="" aria-hidden="true" class="fa fa-pencil" ></i>
+                          <svg width="25px" height="25px"  viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                              <path d="M10 11V17" stroke="#f20707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              </path>
+                              <path d="M14 11V17" stroke="#f20707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              </path>
+                              <path d="M4 7H20" stroke="#f20707" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              </path>
+                              <path d="M6 7H12H18V18C18 19.6569 16.6569 21 15 21H9C7.34315 21 6 19.6569 6 18V7Z" stroke="#f20707"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                              <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#f20707"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                          </svg>
+                        </td>
+                      </ng-container> -->
+
+                      <!-- Table rows -->
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns" class="blue-theme"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <mat-paginator #paginator [pageSize]="pageSize" [pageIndex]="pageIndex"
+                      class="calling-list-pagenation blue-theme" [pageSizeOptions]="pageSizeOptions"
+                      showFirstLastButtons aria-label="Select page"></mat-paginator>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

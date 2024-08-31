@@ -1,0 +1,145 @@
+// /* signup.component.scss */
+
+// .signup-container {
+//   max-width: 400px;
+//   margin: 0 auto;
+//   padding: 20px;
+//   border: 1px solid #ccc;
+//   border-radius: 5px;
+//   background-color: #f9f9f9;
+// }
+
+// h2 {
+//   text-align: center;
+//   margin-bottom: 20px;
+// }
+
+// .form-group {
+//   margin-bottom: 15px;
+// }
+
+// label {
+//   display: block;
+//   font-weight: bold;
+// }
+
+// input[type="text"],
+// input[type="password"],
+// input[type="tel"] {
+//   width: 100%;
+//   padding: 10px;
+//   border: 1px solid #ccc;
+//   border-radius: 5px;
+// }
+
+// button {
+//   width: 100%;
+//   padding: 10px;
+//   border: none;
+//   border-radius: 5px;
+//   background-color: #007bff;
+//   color: #fff;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease;
+// }
+
+// button:hover {
+//   background-color: #0056b3;
+// }
+
+// @media (max-width: 600px) {
+//   .signup-container {
+//     max-width: 90%;
+//   }
+// }
+
+
+
+
+.back-image{
+  background-image: url("../../../../assets/bb.jpg");
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.login-form{
+  height: 100vh;
+  overflow-y: auto;
+  // box-shadow: var(--default-box-shadow);
+  // background-color: var(--authentication-form-bg);
+  background: #fff;
+  position: relative;
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+
+  .sign-in-sign-up-form{
+    padding: 4rem;
+    height: 100vh;
+    .form-group{
+      margin-bottom: 1rem;
+
+      .form-row{
+        .form-group {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+
+}
+
+.forget-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 33px;
+
+  .already-cls{
+    a{
+    text-decoration: none;
+    }
+  }
+
+  .checkbox-section{
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+}
+
+.password-setion{
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  .lock-icon{
+    stroke: #0d6efd;
+    width: 18px;
+    height: 18px;
+  }
+  .link-cls{
+    text-decoration: none;
+  }
+}
+
+.login-btn{
+  width: 100%;
+  margin-top: 16px;
+
+}
+
+.input-section{
+  display: flex;
+  flex-direction: column;
+
+  .input-field{
+    background: #e8f0fe;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+  }
+}

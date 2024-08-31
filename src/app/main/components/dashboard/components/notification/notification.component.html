@@ -1,0 +1,19 @@
+<div class=" text-center  overflow-auto " style="height: 300px;">
+    <!-- <img  class="w-50" src="../../../../../../assets/bell_4712618.png"> -->
+<div class="d-flex align-items-center  p-2 position-sticky top-0 bg-white justify-content-between">
+    <p class="notification-text ">
+        Notification
+    </p>
+    <i class="fa fa-times close-icon " aria-hidden="true"></i>
+</div>
+<div  class="p-2">
+  <p *ngIf="!data?.item?.data?.length">No Notification</p>
+    <div  class="d-flex mt-1 py-2 border-bottom  align-items-center justify-content-between" *ngFor="let notify of data?.item?.data">
+        <p>{{notify?.Description}}</p>
+        <button class="btn bg-primary open-btn  text-white ">Open</button>
+     </div>
+
+
+</div>
+
+</div>

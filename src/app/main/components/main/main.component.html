@@ -1,0 +1,15 @@
+
+<div style="background-color: #e0d8d8;">
+
+  <app-header></app-header>
+</div>
+<div class="flex">
+  <div class="main flex-20">
+    <app-sidebar></app-sidebar>
+  </div>
+
+<div class="main flex-80" [ngClass]="{'flex-100': sidebarVisible}">
+  <router-outlet></router-outlet>
+</div>
+</div>
+

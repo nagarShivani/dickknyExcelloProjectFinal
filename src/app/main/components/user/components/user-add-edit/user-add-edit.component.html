@@ -1,0 +1,129 @@
+<!-- <p>user-add-edit works!</p> -->
+<div class="main-box p-4">
+  <div class="d-flex align-items-center justify-content-between">
+    <h2 class="add-event-heading">{{ paramsid ? "Edit" : "ADD" }} User</h2>
+  </div>
+
+  <div class="matTableDiv mt-3">
+    <div *ngIf="loading" class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+    <mat-card class="firstmatcard">
+      <div class="firstsection" *ngIf="!loading">
+        <div class="container">
+          <div class="row">
+            <div class="col-3">
+              <div
+                class="tasktitle"
+                style="display: flex; flex-direction: column"
+              >
+                <label for="firstNameInput">First Name</label>
+                <input
+                  id="firstNameInput"
+                  style="width: 100%"
+                  class="form-control"
+                  type="text"
+                  [(ngModel)]="firstName"
+                  placeholder="First name"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-3">
+              <div
+                class="tasktitle"
+                style="display: flex; flex-direction: column"
+              >
+                <label for="lastNameInput">Last name</label>
+                <input
+                  id="lastNameInput"
+                  type="text"
+                  style="width: 100%"
+                  class="form-control"
+                  [(ngModel)]="lastName"
+                  maxlength="40"
+                  placeholder="lastname"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div
+                class="tasktitle"
+                style="display: flex; flex-direction: column"
+              >
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  type="text"
+                  style="width: 100%"
+                  class="form-control"
+                  [(ngModel)]="email"
+                  maxlength="40"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-3">
+              <div
+                class="tasktitle"
+                style="display: flex; flex-direction: column"
+              >
+                <label for="phone">Phone</label>
+                <input
+                  id="phone"
+                  type="text"
+                  style="width: 100%"
+                  class="form-control"
+                  [(ngModel)]="phone"
+                  maxlength="40"
+                  placeholder="phone"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-3">
+              <div
+                class="tasktitle"
+                style="display: flex; flex-direction: column"
+              >
+                <label for="discountValueInput">Status</label>
+                <input
+                  type="text"
+                  style="width: 100%"
+                  class="form-control"
+                  [(ngModel)]="status"
+                  maxlength="40"
+                  placeholder="status"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vl"></div>
+
+      <div class="dropdown"></div>
+
+      <div class="vl"></div>
+
+      <div>
+        <div class="row dsr">
+          <div class=" " style="text-align: end">
+            <button mat-button class="submit-btn" (click)="SubmitEvent()">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

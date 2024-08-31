@@ -1,0 +1,254 @@
+<div class="container-fluid container-class">
+  <div class="row">
+    <div class="col-md-5">
+      <div style="text-align: center">
+        <apx-chart
+          class="chart-background-shadow"
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [xaxis]="chartOptions.xaxis"
+          [title]="chartOptions.title"
+          [stroke]="chartOptions.stroke"
+          [markers]="chartOptions.markers"
+          [dataLabels]="chartOptions.dataLabels"
+          [yaxis]="chartOptions.yaxis"
+          [fill]="chartOptions.fill"
+        ></apx-chart>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <div style="text-align: center">
+        <apx-chart
+          [series]="chartOptionss.series"
+          [chart]="chartOptionss.chart"
+          [xaxis]="chartOptionss.xaxis"
+          [title]="chartOptionss.title"
+          [stroke]="chartOptionss.stroke"
+          [markers]="chartOptionss.markers"
+          [dataLabels]="chartOptions.dataLabels"
+          [yaxis]="chartOptionss.yaxis"
+          [fill]="chartOptionss.fill"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+</div>
+<strong class="container-class">Recent Orders</strong>
+<!-- <div class="example-container mat-elevation-z8 container-class">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+ 
+    <ng-container matColumnDef="productname">
+      <th class="table-heading" mat-header-cell *matHeaderCellDef>
+        Product Name
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let pro of element?.products">
+          <p  class="emp-text">
+            {{ pro?.productId?.name }},
+          </p>
+        </div>
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="productimage">
+      <th class="table-heading" mat-header-cell *matHeaderCellDef>
+        Product Image
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let pro of element?.products">
+          <img style="width: 100px;" [src]="pro?.productId?.image"  class="emp-text">
+          
+        </div>
+      </td>
+    </ng-container>
+
+  
+    <ng-container matColumnDef="customer">
+      <th class="table-heading" mat-header-cell *matHeaderCellDef>Customer</th>
+      <td mat-cell *matCellDef="let element">{{ element?.userId?.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="quantity">
+      <th class="table-heading" mat-header-cell *matHeaderCellDef>Quantity</th>
+      <td mat-cell *matCellDef="let element">{{ element.products?.length }}</td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th class="table-heading" mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let pro of element?.products">
+
+          <p>{{pro?.productId?.price}}</p>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="gst">
+      <th class="table-heading" mat-header-cell *matHeaderCellDef> GST</th>
+      <td mat-cell *matCellDef="let element">
+    
+        {{ getGst(element) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="totalprice">
+      <th class="table-heading" mat-header-cell *matHeaderCellDef> Total Price</th>
+      <td mat-cell *matCellDef="let element">
+    
+        {{ element.totalPrice?.toFixed(2) }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="status">
+      <th class="table-heading" mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th class="table-heading" mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div> -->
+<div class="example-container mat-elevation-z8 container-class">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8 table-bordered table-stripped table-responsive"
+  >
+    <ng-container matColumnDef="productname">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">
+        Product Name
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let pro of element?.products">
+          <p style="margin: 0px, 10px; padding: 20px" class="emp-text t-change">
+            {{ pro?.productId?.name }}
+          </p>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="productimage">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">
+        Product Image
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let pro of element?.products">
+          <img
+            style="width: 50px"
+            [src]="pro?.productId?.image"
+            class="emp-text"
+          />
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="customer">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">Customer</th>
+      <td mat-cell *matCellDef="let element">{{ element?.userId?.email }}</td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">Quantity</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element?.products?.productQty }}
+      </td>
+    </ng-container> -->
+    <!-- quantity  -->
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">
+        Product Quantity
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let pro of element?.products">
+          <p style="margin: 0px, 10px; padding: 20px" class="emp-text t-change">
+            {{ pro?.quantity }}
+          </p>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">Price</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let pro of element?.products">
+          <p style="margin: 0px, 10px; padding: 20px">
+            {{ pro?.productId?.price }}
+          </p>
+        </div>
+      </td>
+    </ng-container>
+    <!-- 
+    <ng-container matColumnDef="gst">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">GST</th>
+      <td mat-cell *matCellDef="let element">{{ getGst(element) }}</td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="gst">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">GST</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let pro of element?.products">
+          <p style="margin: 0px, 10px; padding: 20px" class="emp-text t-change">
+            {{ getProductGst(pro) }}
+          </p>
+        </div>
+      </td>
+    </ng-container>
+    <!-- new column  -->
+    <ng-container matColumnDef="newCol">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">Incl. GST</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let pro of element?.products">
+          <p style="margin: 0px 10px; padding: 20px" class="emp-text t-change">
+            {{ pro?.productId?.price }}+ {{ getProductGst(pro) }}*
+            {{ pro?.quantity }}=
+            <!-- {{
+              ((+pro?.productId?.price ?? 0) + (getProductGst(pro) ?? 0)) *
+                pro.quantity
+            }} -->
+            {{ (+pro?.productId?.price + getProductGst(pro)) * pro.quantity }}
+          </p>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalprice">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">
+        Total Price
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.totalPrice?.toFixed(2) }}
+      </td>
+    </ng-container>
+
+    <!-- <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">Status</th>
+      <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+    </ng-container> -->
+    <!-- Implementing drop- down status option  -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">Status</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-form-field appearance="fill">
+          <mat-select
+            [(value)]="element.status"
+            (selectionChange)="updateOrderStatus(element)"
+          >
+            <mat-option *ngFor="let status of statusOptions" [value]="status">
+              {{ status }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef class="table-heading">Action</th>
+      <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

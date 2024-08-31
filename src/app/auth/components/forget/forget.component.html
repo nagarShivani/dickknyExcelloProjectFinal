@@ -1,0 +1,56 @@
+<div class="row">
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-8">
+      <div class="back-image"></div>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 pl-md-0">
+      <div class="d-flex align-items-center login-form">
+        <form class="sign-in-sign-up-form w-100">
+
+
+          <div class="form-row">
+            <div class="form-group col-12">
+              <h6 class="text-center mb-0">Hi!</h6> <label class="text-center d-block">Reset Password</label>
+            </div>
+          </div>
+
+
+          <!-- <div class="form-group input-section">
+            <label for="username">Email</label>
+            <input class="input-field" type="text" id="email" [(ngModel)]="email" name="email" placeholder="Enter your email">
+          </div> -->
+
+          <div class="form-group input-section">
+            <label for="password">Email</label>
+            <input class="input-field" type="email" id="email" [(ngModel)]="email" name="email" placeholder="Enter your Email">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-12">
+              <button (click)="onSubmit()" type="submit"
+                class="btn text-center d-inline-flex btn-block text-center btn-primary login-btn">
+                <span class="w-100">Request</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-row forget-section">
+            <a [routerLink]="'/login'">
+
+              <p >Back to login</p>
+            </a>
+          </div>
+
+          <div class="form-group">
+            <div class="col-12">
+              <p class="text-center mt-5 footer-copy">
+                Copyright @ 2024 by Gurpreet Singh
+              </p>
+            </div>
+          </div>
+          <!-- <button type="submit" (click)="onSubmit()">Log in</button> -->
+        </form>
+      </div>
+    </div>
+  </div>

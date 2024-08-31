@@ -1,0 +1,112 @@
+<div class="main-box p-4">
+  <div class="d-flex align-items-center justify-content-between">
+    <h2 class="add-event-heading">{{ paramsid ? "Edit" : "ADD" }} Coupon</h2>
+  </div>
+
+  <div class="matTableDiv mt-3">
+    <div *ngIf="loading" class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+    <mat-card class="firstmatcard">
+      <div class="firstsection" *ngIf="!loading">
+        <div class="top-description">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div
+                  class="tasktitle"
+                  style="display: flex; flex-direction: column"
+                >
+                  <label for="couponInput">Coupon</label>
+                  <input
+                    style="width: 100%"
+                    class="form-control"
+                    [(ngModel)]="title"
+                    maxlength="40"
+                    placeholder="Coupon"
+                    required
+                  />
+
+                  <span class="error-msg no-wrap" *ngIf="!title && showerror">
+                    Coupon is required
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div
+                  class="tasktitle"
+                  style="display: flex; flex-direction: column"
+                >
+                  <label for="discountValueInput">Discount By Price</label>
+                  <input
+                    #discountValueInput
+                    type="number"
+                    style="width: 100%"
+                    class="form-control"
+                    [(ngModel)]="discountvalue"
+                    (ngModelChange)="onDiscountValueChange()"
+                    maxlength="40"
+                    placeholder="Discount by price"
+                    required
+                  />
+                  <span
+                    class="error-msg no-wrap"
+                    *ngIf="!discountvalue && discountvalueError"
+                  >
+                    Discount is required
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div
+                  class="tasktitle"
+                  style="display: flex; flex-direction: column"
+                >
+                  <label for="discountPercentageInput"
+                    >Discount By Percentage</label
+                  >
+
+                  <input
+                    #discountPercentageInput
+                    (ngModelChange)="onDiscountPercentageChange()"
+                    type="number"
+                    style="width: 100%"
+                    class="form-control"
+                    [(ngModel)]="discountvaluepercentage"
+                    maxlength="40"
+                    placeholder="discount by percentage"
+                    required
+                  />
+                  <span
+                    class="error-msg no-wrap"
+                    *ngIf="
+                      !discountvaluepercentage && discountvaluepercentageError
+                    "
+                  >
+                    Discount is required
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vl"></div>
+
+        <div class="dropdown"></div>
+
+        <div class="vl"></div>
+
+        <div>
+          <div class="row dsr">
+            <div class=" " style="text-align: end">
+              <button mat-button class="submit-btn" (click)="SubmitEvent()">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

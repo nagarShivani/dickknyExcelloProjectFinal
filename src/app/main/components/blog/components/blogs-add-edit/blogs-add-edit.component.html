@@ -1,0 +1,151 @@
+<div class="main-box p-4">
+  <div class="d-flex align-items-center justify-content-between">
+    <h2 class="add-event-heading">{{ paramsid ? "Edit" : "ADD" }} Blog</h2>
+  </div>
+
+  <div class="matTableDiv mt-3">
+    <div *ngIf="loading" class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+    <mat-card class="firstmatcard">
+      <div class="firstsection" *ngIf="!loading">
+        <div class="top-description">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="vl"></div>
+
+                <input type="file" (change)="uploadFile($event)" />
+              </div>
+              <div class="col-md-6">
+                <div *ngIf="saveimageurl">
+                  <img
+                    style="width: 100px; height: 100px"
+                    [src]="saveimageurl"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div
+                  class="tasktitle"
+                  style="display: flex; flex-direction: column"
+                >
+                  <label for="titleInput" style="margin-top: 20px">Title</label>
+                  <input
+                    style="width: 100%"
+                    class="form-control"
+                    [(ngModel)]="title"
+                    maxlength="40"
+                    placeholder="title"
+                    required
+                  />
+                  <span class="error-msg no-wrap" *ngIf="!title && showerror">
+                    Title is required
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div
+                  class="tasktitle"
+                  style="display: flex; flex-direction: column"
+                >
+                  <label for="titleInput">Author Name</label>
+                  <input
+                    type="text"
+                    style="width: 100%"
+                    class="form-control"
+                    [(ngModel)]="authorname"
+                    maxlength="40"
+                    placeholder="author name"
+                    required
+                  />
+                  <span
+                    class="error-msg no-wrap"
+                    *ngIf="!authorname && showauthorerror"
+                  >
+                    Author Name is required
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div
+                  class="tasktitle"
+                  style="display: flex; flex-direction: column"
+                >
+                  <label for="descriptionInput">Description</label>
+                  <!-- <input
+                        style="width: 100%"
+                        class="form-control"
+                        [(ngModel)]="description"
+                        maxlength="40"
+                        placeholder="description"
+                        required
+                      />  -->
+
+                  <angular-editor
+                    [placeholder]="'Enter text here...'"
+                    [config]="config"
+                    [(ngModel)]="description"
+                  ></angular-editor>
+                  <!-- <div class="NgxEditor__Wrapper">
+                    <ngx-editor-menu [editor]="editor"> </ngx-editor-menu>
+                    <ngx-editor
+                      [editor]="editor"
+                      [ngModel]="description"
+                      [disabled]="false"
+                      [placeholder]="'Type here...'"
+                    ></ngx-editor>
+                  </div> -->
+                  <span
+                    class="error-msg no-wrap"
+                    *ngIf="!description && showdescriptionerror"
+                  >
+                    Description is required
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 
+        <div class="vl"></div>
+
+        <input type="file" (change)="uploadFile($event)" />
+
+        <div *ngIf="saveimageurl">
+          <img style="width: 100px; height: 100px" [src]="saveimageurl" />
+        </div> -->
+
+        <div>
+          <div class="row dsr">
+            <div class=" " style="text-align: end">
+              <button mat-button class="submit-btn" (click)="SubmitEvent()">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<!-- <ckeditor [editor]="Editor" data="<p>hello world</p>"> </ckeditor> -->
+
+<!-- app.component.html -->
+<!-- <ckeditor
+[editor]="Editor"
+style="width: 100%; min-height: 150px"
+class="form-control"
+[(ngModel)]="description"
+required
+>
+></ckeditor
+> -->

@@ -1,0 +1,78 @@
+.back-image{
+    background-image: url("../../../../assets/bb.jpg");
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .login-form{
+    min-height: 100vh;
+    overflow-y: auto;
+    // box-shadow: var(--default-box-shadow);
+    // background-color: var(--authentication-form-bg);
+    background: #fff;
+    position: relative;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  
+    .sign-in-sign-up-form{
+      padding: 4rem;
+  
+      .form-group{
+        margin-bottom: 1rem;
+  
+        .form-row{
+          .form-group {
+            margin-bottom: 2rem;
+          }
+        }
+      }
+    }
+  
+  }
+  
+  .forget-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .checkbox-section{
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+  }
+  
+  .password-setion{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  
+    .lock-icon{
+      stroke: #0d6efd;
+      width: 18px;
+      height: 18px;
+    }
+    .link-cls{
+      text-decoration: none;
+    }
+  }
+  
+  .login-btn{
+    width: 100%;
+  }
+  
+  .input-section{
+    display: flex;
+    flex-direction: column;
+  
+    .input-field{
+      background: #e8f0fe;
+      border: none;
+      padding: 8px;
+      border-radius: 5px;
+    }
+  }

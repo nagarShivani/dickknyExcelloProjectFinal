@@ -1,0 +1,472 @@
+<div class="main-box p-4">
+  <div class="d-flex align-items-center justify-content-between">
+    <h2 class="add-event-heading">{{ paramsid ? "Edit" : "ADD" }} Product</h2>
+  </div>
+  <div class="matTableDiv mt-3">
+    <div *ngIf="loading" class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+
+    <mat-card class="firstmatcard">
+      <!-- <div class="firstsection">
+        <div class="top-description">
+          <div class="tasktitle" style="display: flex">
+            <input
+              style="width: 100px"
+              class="form-control"
+              [(ngModel)]="title"
+              maxlength="40"
+              placeholder="procuct"
+              required
+            />
+          </div>
+
+          <div class="tasktitle" style="display: flex">
+            <input
+              type="number"
+              style="width: 90px"
+              class="form-control"
+              [(ngModel)]="price"
+              maxlength="40"
+              placeholder="price"
+              required
+            />
+          </div>
+          <div class="tasktitle" style="display: flex">
+            <input
+              type="number"
+              style="width: 70px"
+              class="form-control"
+              [(ngModel)]="salePrice"
+              maxlength="40"
+              placeholder="salePrice"
+              required
+            />
+          </div>
+          <div class="tasktitle" style="display: flex">
+            <input
+              style="width: 100%"
+              class="form-control"
+              [(ngModel)]="color"
+              maxlength="40"
+              placeholder="color"
+              required
+            />
+          </div>
+          <div class="tag" style="display: flex">
+            <input
+              style="width: 100%"
+              class="form-control"
+              [(ngModel)]="tag"
+              maxlength="40"
+              placeholder="tag"
+              required
+            />
+          </div>
+          <div class="tasktitle" style="display: flex">
+            <input
+              style="width: 100%"
+              class="form-control"
+              [(ngModel)]="size"
+              maxlength="40"
+              placeholder="size"
+              required
+            />
+          </div>
+
+          <mat-form-field class="form-field emp-mat-input w-50">
+            <mat-label>Category</mat-label>
+            <mat-select
+              [(ngModel)]="category"
+              name="category"
+              required
+              category
+              multiple
+            >
+              <mat-option [value]="cat?._id" *ngFor="let cat of CategoryList">
+                {{ cat?.name }}</mat-option
+              >
+            </mat-select>
+            <mat-error *ngIf="showerror && !category">
+              Category is required</mat-error
+            >
+          </mat-form-field>
+
+          <mat-form-field class="form-field emp-mat-input w-50">
+            <mat-label>Brand</mat-label>
+            <mat-select [(ngModel)]="brand" name="brand" required brand>
+              <mat-option [value]="bran?._id" *ngFor="let bran of BrandList">
+                {{ bran?.name }}</mat-option
+              >
+            </mat-select>
+            <mat-error *ngIf="showerror && !brand">
+              Brand is required</mat-error
+            >
+          </mat-form-field>
+
+          <mat-form-field class="form-field emp-mat-input w-50">
+            <mat-label>Size</mat-label>
+            <mat-select [(ngModel)]="size" name="size" required size multiple>
+              <mat-option [value]="si?._id" *ngFor="let si of SizeList">
+                {{ si?.size }}</mat-option
+              >
+            </mat-select>
+            <mat-error *ngIf="showerror && !size"> size is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-field emp-mat-input w-50">
+            <mat-label>Color</mat-label>
+            <mat-select
+              [(ngModel)]="color"
+              name="color"
+              required
+              color
+              multiple
+            >
+              <mat-option [value]="col?._id" *ngFor="let col of ColorList">
+                {{ col?.color }}</mat-option
+              >
+            </mat-select>
+            <mat-error *ngIf="showerror && !color">
+              color is required</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <div class="vl"></div>
+
+        <input type="file" (change)="uploadFile($event)" />
+
+        <div *ngIf="saveimageurl">
+          <img style="width: 100px; height: 100px" [src]="saveimageurl" />
+        </div>
+
+        <div class="vl"></div>
+
+        <input type="file" (change)="uploadFileMultiple($event)" multiple />
+
+        <div *ngIf="multipleimage">
+          <div *ngFor="let img of multipleimage">
+            <img style="width: 100px; height: 100px" [src]="img" />
+          </div>
+        </div>
+
+        <div>
+          <div class="row dsr">
+            <div class=" " style="text-align: end">
+              <button mat-button class="submit-btn" (click)="SubmitEvent()">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="container-fluid" style="margin-top: 10px" *ngIf="!loading">
+        <!-- <div class="row">
+          <div class="col-md-3">
+            <label for="productInput">Product</label>
+            <div class="tasktitle" style="display: flex">
+              <input
+                style="width: 145px"
+                class="form-control"
+                [(ngModel)]="title"
+                maxlength="40"
+                placeholder="product"
+                required
+              />
+              <span class="error-msg no-wrap" *ngIf="!title && showerror">
+                Product is required
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <label for="priceInput">Price</label>
+            <div class="tasktitle" style="display: flex">
+              <input
+                type="number"
+                style="width: 145px"
+                class="form-control"
+                [(ngModel)]="price"
+                maxlength="40"
+                placeholder="price"
+                required
+              />
+              <span class="error-msg no-wrap" *ngIf="!price && showerror">
+                Price is required
+              </span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="salePrice"> Sale price</label>
+            <div class="tasktitle" style="display: flex">
+              <input
+                type="number"
+                style="width: 145px"
+                class="form-control"
+                [(ngModel)]="salePrice"
+                maxlength="40"
+                placeholder="Sale price"
+                required
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="tagInput">Tag</label>
+
+            <div class="tag" style="display: flex">
+              <input
+                style="width: 145px"
+                class="form-control"
+                [(ngModel)]="tag"
+                maxlength="40"
+                placeholder="tag"
+                required
+              />
+              <span class="error-msg no-wrap" *ngIf="!tag && showerror">
+                Tag is required
+              </span>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="row">
+          <div class="col-md-4">
+            <label for="productInput">Product</label>
+            <div
+              class="tasktitle"
+              style="display: flex; flex-direction: column"
+            >
+              <input
+                style="width: 85%"
+                class="form-control"
+                [(ngModel)]="title"
+                maxlength="40"
+                placeholder="product"
+                required
+              />
+              <span class="error-msg no-wrap" *ngIf="!title && showerror">
+                Product is required
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <label for="priceInput">Price</label>
+            <div
+              class="tasktitle"
+              style="display: flex; flex-direction: column"
+            >
+              <input
+                type="number"
+                style="width: 85%"
+                class="form-control"
+                [(ngModel)]="price"
+                maxlength="40"
+                placeholder="price"
+                required
+              />
+              <span class="error-msg no-wrap" *ngIf="!price && showerrorprice">
+                Price is required
+              </span>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <label for="salePrice"> Sale price</label>
+            <div
+              class="tasktitle"
+              style="display: flex; flex-direction: column"
+            >
+              <input
+                type="number"
+                style="width: 85%"
+                class="form-control"
+                [(ngModel)]="salePrice"
+                maxlength="40"
+                placeholder="Sale price"
+                required
+              />
+
+              <span
+                class="error-msg no-wrap"
+                *ngIf="!salePrice && showsaleprice"
+              >
+                Sale Price is required
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <label for="tagInput">Tag</label>
+            <div
+              class="tasktitle"
+              style="display: flex; flex-direction: column"
+            >
+              <input
+                style="width: 85%"
+                class="form-control"
+                [(ngModel)]="tag"
+                maxlength="40"
+                placeholder="tag"
+                required
+              />
+              <span class="error-msg no-wrap" *ngIf="!tag && showerrortag">
+                Tag is required
+              </span>
+            </div>
+          </div>
+          <!-- change  -->
+          <div class="col-md-4" style="display: flex; flex-direction: column">
+            <label>Category</label>
+            <mat-form-field style="width: 85%" class="form-field emp-mat-input">
+              <mat-label>Category</mat-label>
+              <mat-select
+                [(ngModel)]="category"
+                name="category"
+                required
+                category
+                multiple
+              >
+                <mat-option [value]="cat?._id" *ngFor="let cat of CategoryList">
+                  {{ cat?.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-error
+              style="margin-top: 0px"
+              class="error-msg"
+              *ngIf="showerrorcategory && (!category || category.length === 0)"
+            >
+              Category is required
+            </mat-error>
+          </div>
+
+          <div class="col-md-4" style="display: flex; flex-direction: column">
+            <label>Brand</label>
+            <mat-form-field class="form-field emp-mat-input" style="width: 85%">
+              <mat-label>Brand</mat-label>
+              <mat-select [(ngModel)]="brand" name="brand" required brand>
+                <mat-option [value]="bran?._id" *ngFor="let bran of BrandList">
+                  {{ bran?.name }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <mat-error
+              style="margin-top: 0px"
+              class="error-msg"
+              *ngIf="showerrorbrand && !brand"
+            >
+              Brand is required</mat-error
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4" style="display: flex; flex-direction: column">
+            <label>Size</label>
+            <mat-form-field class="form-field emp-mat-input" style="width: 85%">
+              <mat-label>Size</mat-label>
+              <mat-select [(ngModel)]="size" name="size" required size multiple>
+                <mat-option [value]="si?._id" *ngFor="let si of SizeList">
+                  {{ si?.size }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <mat-error
+              style="margin-top: 0px"
+              class="error-msg"
+              *ngIf="showerrorsize && (!size || size.length === 0)"
+            >
+              Size is required</mat-error
+            >
+          </div>
+          <div class="col-md-4" style="display: flex; flex-direction: column">
+            <label>Color</label>
+            <mat-form-field class="form-field emp-mat-input" style="width: 85%">
+              <mat-label>Color</mat-label>
+              <mat-select
+                style="margin-top: 0px"
+                [(ngModel)]="color"
+                name="color"
+                required
+                color
+                multiple
+              >
+                <mat-option [value]="col?._id" *ngFor="let col of ColorList">
+                  {{ col?.color }}</mat-option
+                >
+              </mat-select>
+            </mat-form-field>
+            <mat-error
+              style="margin-top: 5px"
+              class="error-msg"
+              *ngIf="showerrorcolor && (!color || color.length === 0)"
+            >
+              color is required</mat-error
+            >
+          </div>
+        </div>
+        <!-- 
+        <div>
+          <label for="">Product Information</label>
+          <textarea [(ngModel)]="productInformation"></textarea>
+        </div> -->
+        <div>
+          <label for="productInformation">Product Information</label>
+          <br />
+          <textarea
+            id="productInformation"
+            style="width: 50%; min-height: 80px"
+            [(ngModel)]="productInformation"
+            placeholder="Enter product information..."
+            required
+          ></textarea>
+        </div>
+
+        <!-- <div>
+          <label for="">Additional Information</label>
+          <textarea [(ngModel)]="additionalInformation"></textarea>
+        </div> -->
+        <div style="display: flex; flex-direction: column; margin-bottom: 15px">
+          <label for="additionalInfo">Additional Information</label>
+          <textarea
+            id="additionalInfo"
+            style="width: 50%; min-height: 80px; padding: 5px"
+            [(ngModel)]="additionalInformation"
+            placeholder="Enter additional information..."
+            required
+          ></textarea>
+        </div>
+        <div class="vl"></div>
+
+        <input type="file" (change)="uploadFile($event)" />
+
+        <div *ngIf="saveimageurl">
+          <img style="width: 100px; height: 100px" [src]="saveimageurl" />
+        </div>
+        <div *ngIf="loading" class="spinner-image"></div>
+        <div class="vl"></div>
+
+        <input type="file" (change)="uploadFileMultiple($event)" multiple />
+
+        <div *ngIf="multipleimage">
+          <div *ngFor="let img of multipleimage">
+            <img style="width: 100px; height: 100px" [src]="img" />
+          </div>
+        </div>
+        <div *ngIf="loading1" class="spinner-image1"></div>
+        <div>
+          <div class="row dsr">
+            <div class=" " style="text-align: end">
+              <button mat-button class="submit-btn" (click)="SubmitEvent()">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>

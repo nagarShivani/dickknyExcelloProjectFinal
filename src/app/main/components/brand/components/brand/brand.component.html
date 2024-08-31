@@ -1,0 +1,130 @@
+<div class="p-4">
+  <div class="py-4 top-box">
+    <div class="d-flex align-items-center justify-content-between">
+      <h4 class="event-text">Brand</h4>
+    </div>
+
+    <div class="d-flex align-items-start gap-3 justify-content-between">
+      <div class="d-flex gap-3">
+        <div class="search-box">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="search by name"
+            [(ngModel)]="searchfilter"
+            (keyup)="Search()"
+          />
+          <svg
+            class="search-icon"
+            width="17px"
+            height="17px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
+                stroke="#707070"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <button
+        (click)="Add()"
+        class="btn btn-primary add-btn"
+        [disabled]="loading"
+      >
+        Add Brand
+      </button>
+    </div>
+  </div>
+  <div class="employee-wrapper">
+    <div class="shadow mt-2 card-body main-table-box">
+      <div class="mat-table-container px-3">
+        <table mat-table [dataSource]="dataSource" class="mat-table">
+          <!-- Column definitions -->
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef class="blue-theme">
+              <strong class="heading-color">Title</strong>
+            </th>
+            <td mat-cell *matCellDef="let element">
+              <div class="d-flex profile-title">
+                <div class="employee-profile">A</div>
+                <div>
+                  <p class="emp-text">
+                    {{ element?.name }}
+                  </p>
+                </div>
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef class="blue-theme">
+              <strong class="heading-color">Status</strong>
+            </th>
+            <td mat-cell *matCellDef="let element">Active</td>
+          </ng-container>
+
+          <ng-container matColumnDef="Action">
+            <th mat-header-cell *matHeaderCellDef class="blue-theme">
+              <strong class="heading-color">Action</strong>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <i
+                style="
+                  margin-top: 10px;
+                  font-size: 16px;
+                  color: rgb(0, 62, 112);
+                "
+                _ngcontent-ng-c1620102347=""
+                aria-hidden="true"
+                class="fas fa-edit"
+                (click)="editRow(row)"
+              ></i>
+
+              <i
+                style="font-size: 16px; margin-left: 15px"
+                class="fa-solid fa-trash-can text-danger"
+                (click)="deleteRow(row)"
+              ></i>
+            </td>
+          </ng-container>
+
+          <!-- Table rows -->
+          <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns"
+            class="blue-theme"
+          ></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <div *ngIf="loading" class="loading-rows">
+          <div class="spinner"></div>
+        </div>
+        <mat-paginator
+          #paginator
+          [pageSize]="pageSize"
+          [pageIndex]="pageIndex"
+          class="calling-list-pagenation blue-theme"
+          [pageSizeOptions]="pageSizeOptions"
+          showFirstLastButtons
+          aria-label="Select page"
+        ></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

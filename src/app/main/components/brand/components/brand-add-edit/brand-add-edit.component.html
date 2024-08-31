@@ -1,0 +1,47 @@
+<div class="main-box p-4">
+  <div class="d-flex align-items-center justify-content-between">
+    <h2 class="add-event-heading">{{ paramsid ? "Edit" : "ADD" }} Brand</h2>
+  </div>
+
+  <div class="matTableDiv mt-3">
+    <div *ngIf="loading" class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+    <mat-card class="firstmatcard">
+      <div class="firstsection" *ngIf="!loading">
+        <div class="top-description">
+          <div class="tasktitle" style="display: flex; flex-direction: column">
+            <label for="brandInput">Brand</label>
+            <!-- <span *ngIf="loading" class="spinner"></span> -->
+            <input
+              style="width: 100%"
+              class="form-control"
+              [(ngModel)]="title"
+              maxlength="40"
+              required
+            />
+
+            <span class="error-msg" *ngIf="!title && showerror">
+              Brand is required
+            </span>
+          </div>
+        </div>
+        <div class="vl"></div>
+
+        <div class="dropdown"></div>
+
+        <div class="vl"></div>
+
+        <div>
+          <div class="row dsr">
+            <div class=" " style="text-align: end">
+              <button mat-button class="submit-btn" (click)="SubmitEvent()">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
