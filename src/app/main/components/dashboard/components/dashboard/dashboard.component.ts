@@ -204,21 +204,39 @@ export class DashboardComponent {
     });
   }
   // update order status
+  // updateOrderStatus(order: any) {
+  //   const orderId = order._id;
+  //   const newStatus = order.status;
+
+  //   this.http
+  //     .put(`/api/updateOrderStatus/${orderId}`, { status: newStatus })
+  //     .subscribe(
+  //       (response) => {
+  //         console.log("Order status updated new", response);
+  //       },
+  //       (error) => {
+  //         console.error("Error updating order status new", error);
+  //       }
+  //     );
+  // }
   updateOrderStatus(order: any) {
     const orderId = order._id;
     const newStatus = order.status;
 
     this.http
-      .put(`/api/updateOrderStatus/${orderId}`, { status: newStatus })
+      .put(`https://backend.dickkny.com/updateOrderStatus/${orderId}`, {
+        status: newStatus,
+      })
       .subscribe(
         (response) => {
-          console.log("Order status updated new", response);
+          console.log("Order status updated successfully", response);
         },
         (error) => {
-          console.error("Error updating order status new", error);
+          console.error("Error updating order status", error);
         }
       );
   }
+
   //  CUSTOMISED GST
   getProductGst(product: any): number {
     return (parseInt(product.productId.price) * 18) / 100;
