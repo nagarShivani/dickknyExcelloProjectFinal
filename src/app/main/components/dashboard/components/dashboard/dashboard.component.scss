@@ -1,3 +1,18 @@
+
+.table-container {
+    width: 100%; /* Ensures container takes full width of the page */
+  }
+  
+  .table-wrapper {
+    max-width: 100%; /* Ensures the wrapper doesn't overflow */
+    overflow-x: auto; /* Enables horizontal scrolling within the table wrapper */
+  }
+  
+  table {
+    width: 100%; /* Ensures table fills the wrapper's width */
+  }
+  
+
 .dashbaord-wrapper {
    
 
