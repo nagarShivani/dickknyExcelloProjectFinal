@@ -8,8 +8,9 @@ import { environment } from "../environment";
 })
 export class ErpService extends ApiService {
   // localpath:any = `http://localhost:3000`;
-  localpath: any = `https://dickkny.vercel.app`;
+  // localpath: any = `https://dickkny.vercel.app`;
   // localpath: any = "http://157.173.221.56:3000";
+  localpath: any = "https://backend.dickkny.com";
 
   signUpUser(data: any) {
     const { body } = data;

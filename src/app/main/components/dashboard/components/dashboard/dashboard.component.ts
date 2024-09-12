@@ -52,7 +52,7 @@ export class DashboardComponent {
     "newCol",
     "totalprice",
     "status",
-    "action",
+    // "action",
   ];
 
   dataSource = new MatTableDataSource<any>([]);
