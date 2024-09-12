@@ -439,15 +439,19 @@
             required
           ></textarea>
         </div>
-        <div class="vl"></div>
+        <label>Main Image</label>
 
+        <div class="vl"></div>
         <input type="file" (change)="uploadFile($event)" />
 
         <div *ngIf="saveimageurl">
           <img style="width: 100px; height: 100px" [src]="saveimageurl" />
         </div>
         <div *ngIf="loading" class="spinner-image"></div>
+
         <div class="vl"></div>
+        <label>Multiple Image</label>
+        <br />
 
         <input type="file" (change)="uploadFileMultiple($event)" multiple />
 
