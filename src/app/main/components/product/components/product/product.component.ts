@@ -18,8 +18,9 @@ export class ProductComponent {
   loading?: boolean = true;
   dataSource = new MatTableDataSource<any>([]);
   displayedColumns: string[] = [
-    "title",
+  
     "image",
+    "title",
     "category",
     "brand",
     "price",
@@ -28,6 +29,7 @@ export class ProductComponent {
     "Status",
     "Action",
   ];
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   pageSize: number = 10;
